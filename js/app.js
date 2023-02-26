@@ -38,7 +38,7 @@ const displayPhones = (phones, dataLimit) => {
                     <div class="card-body p-">
                       <h5 class="card-title">${phone.phone_name}</h5>
                       <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                      <button onclick="showPhoneDetails('${phone.slug}')" class='btn btn-primary'>Show details</button>
+                      <button onclick="loadPhoneDetails('${phone.slug}')" class='btn btn-primary' data-bs-toggle="modal" data-bs-target="#phoneDetailsModal">Show details</button>
                     </div>
                   </div>
         `
@@ -76,11 +76,20 @@ const toggleSpinner = isLoading => {
 document.getElementById('show-all-btn').addEventListener('click', function () {
     processSearch();
 })
-const showPhoneDetails=async(id)=>{
-    const url=`https://openapi.programming-hero.com/api/phone/${id}`
+const loadPhoneDetails=async id=>{
+    const url=`https://openapi.programming-hero.com/api/phone/${id}`;
     const res=await fetch(url);
     const data=await res.json();
-    console.log(data.data);
+    showPhoneDetails(data.data);
 }
+const showPhoneDetails=phone=>{
+    console.log(phone);
+    const modalTitle=document.getElementById('phoneDetailsModalLabel');
+    modalTitle.innerText=phone.name;
+    const releaseDateDetails=document.getElementById('modal-release-body');
+    // releaseDateDetails.innerText=phone.releaseDate;
+    releaseDateDetails.innerText=phone.mainFeatures.displaySize;
+}
+
 
 // loadPhones();

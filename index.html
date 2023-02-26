@@ -35,11 +35,32 @@
         </section>
         <!-- spinner -->
         <section id="spinner" style="height: 200px;" class="mt-5 d-none">
-            <div  class="d-flex justify-content-center align-items-center">
+            <div class="d-flex justify-content-center align-items-center">
                 <div class="spinner-border text-success" role="status">
-                  <span class="visually-hidden">Loading...</span>
+                    <span class="visually-hidden">Loading...</span>
                 </div>
-              </div>
+            </div>
+        </section>
+        <!-- Button trigger modal -->
+        <section>
+            <!-- Modal -->
+            <div class="modal fade" id="phoneDetailsModal" tabindex="-1" aria-labelledby="phoneDetailsModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="phoneDetailsModalLabel"></h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p id="modal-release-body"></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 
